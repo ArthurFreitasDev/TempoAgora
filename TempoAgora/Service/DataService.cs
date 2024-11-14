@@ -60,6 +60,7 @@ namespace TempoAgora.Service
                     };
                 }
             }
+            return tempo;
         }
     }
 }
