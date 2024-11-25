@@ -16,10 +16,12 @@ namespace TempoAgora.Service
         {
             // https://openweathermap.org/current#current_JSON
             // https://home.openweathermap.org/api_keys
+
             string appId = "6135072afe7f6cec1537d5cb08a5a1a2";
 
-            string url = $"http://api.openweathermap.org/data/2.5/weater?q={cidade}&units=metric&appid={appId}";
-            
+            string url = $"http://api.openweathermap.org/data/2.5/weather?" +
+                         $"q={cidade}&units=metric&appid={appId}";
+
             Tempo tempo = null;
 
             using (HttpClient client = new HttpClient())

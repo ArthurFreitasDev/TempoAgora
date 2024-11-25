@@ -94,15 +94,45 @@ namespace TempoAgora
             lbl_reverso.Text = await GetGeocodeReverseData(latitude, longitude);
         }
 
-        private void ObterPrevisao(object sender, EventArgs e)
+        private async void ObterPrevisao(object sender, EventArgs e)
         {
             try
             {
-                
-            }
-            catch(Exception ex)
-            {
+                if (!String.IsNullOrEmpty(cidade))
+                {
+                    Tempo? previsao = await DataService.GetPrevisaodoTempo(cidade);
 
+                    string dados_previsao = "";
+
+                    if (previsao != null)
+                    {
+                        dados_previsao = $"Humidade: {previsao.Humidity} \n" +
+                                         $"Nascer do Sol: {previsao.Sunrise} \n " +
+                                         $"Pôr do Sol: {previsao.Sunset} \n" +
+                                         $"Temperatura: {previsao.Temperature} \n" +
+                                         $"Titulo: {previsao.Title} \n" +
+                                         $"Visibilidade: {previsao.Visibility} \n" +
+                                         $"Vento: {previsao.Wind} \n" +
+                                         $"Previsão: {previsao.Weather} \n" +
+                                         $"Descrição: {previsao.WeatherDescription} \n";
+
+
+                    }
+                    else
+                    {
+                        dados_previsao = $"Sem dados, previsão nula.";
+                    }
+
+                    Debug.WriteLine("-------------------------------------------");
+                    Debug.WriteLine(dados_previsao);
+                    Debug.WriteLine("-------------------------------------------");
+
+                    lbl_previsao.Text = dados_previsao;
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Erro ", ex.Message, "OK");
             }
         }
     }
