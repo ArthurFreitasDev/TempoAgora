@@ -116,7 +116,19 @@ namespace TempoAgora
                                          $"Previsão: {previsao.Weather} \n" +
                                          $"Descrição: {previsao.WeatherDescription} \n";
 
-
+                        HistoricoTempo a = new HistoricoTempo()
+                        {
+                            Humidity = previsao.Humidity,
+                            Sunrise = previsao.Sunrise,
+                            Sunset = previsao.Sunset,
+                            Temperature = previsao.Temperature,
+                            Title = previsao.Title,
+                            Visibility = previsao.Visibility,
+                            Wind = previsao.Wind,
+                            Weather = previsao.Weather,
+                            WeatherDescription = previsao.WeatherDescription
+                        };
+                        await App.DbTempo.InsertTempo(a);
                     }
                     else
                     {
@@ -134,6 +146,11 @@ namespace TempoAgora
             {
                 await DisplayAlert("Erro ", ex.Message, "OK");
             }
+        }
+
+        private async void HistoricoPrevisao(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HistoricoPrevisoes());
         }
     }
 

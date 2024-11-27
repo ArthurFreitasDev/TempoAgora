@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TempoAgora.HistoricoPrevisoes"
+             Title="HistoricoPrevisoes">
+    <VerticalStackLayout>
+        <ListView x:Name="lst_tempo">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame>
+                            <Grid RowDefinitions="*,*,*,*,*,*,*,*,*" ColumnDefinitions="*,*">
+                                <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="Title" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding Temperature}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="Temperature" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="{Binding Wind}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Text="Wind" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="{Binding Humidity}" Grid.Row="3" Grid.Column="1"/>
+                                <Label Text="Humidity" Grid.Row="3" Grid.Column="0"/>
+                                <Label Text="{Binding Visibility}" Grid.Row="4" Grid.Column="1"/>
+                                <Label Text="Visibility" Grid.Row="4" Grid.Column="0"/>
+                                <Label Text="{Binding Sunrise}" Grid.Row="5" Grid.Column="1"/>
+                                <Label Text="Sunrise" Grid.Row="5" Grid.Column="0"/>
+                                <Label Text="{Binding Sunset}" Grid.Row="6" Grid.Column="1"/>
+                                <Label Text="Sunset" Grid.Row="6" Grid.Column="0"/>
+                                <Label Text="{Binding Weather}" Grid.Row="7" Grid.Column="1"/>
+                                <Label Text="Weather" Grid.Row="7" Grid.Column="0"/>
+                                <Label Text="{Binding WeatherDescription}" Grid.Row="8" Grid.Column="1"/>
+                                <Label Text="WeatherDescription" Grid.Row="8" Grid.Column="0"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>

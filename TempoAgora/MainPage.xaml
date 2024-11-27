@@ -20,6 +20,7 @@
             <Button Text="Obter Previsão do Tempo" Clicked="ObterPrevisao"/>
 
             <Label x:Name="lbl_previsao"/>
+            <Button Text="Historico" Clicked="HistoricoPrevisao"/>
         </StackLayout>
     </ScrollView>    
 
